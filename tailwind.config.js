@@ -32,6 +32,13 @@ export default {
       '2xl': {
         min: '1536px'
       },
+      'tablet': {
+        min: '768px'
+      },
+      'mobile':{
+        min:'0px',
+        max:'767px'
+      }
     }
   },
   plugins: [
