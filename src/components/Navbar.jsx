@@ -60,7 +60,7 @@ function NavBar({loggedIn, username}){
                 !loggedIn
                 &&
                 <span className="tablet:flex tablet:flex-row tablet:gap-11 flex flex-col gap-2">
-                    <Link to='/'>Signup</Link>
+                    <Link to='/signup'>Signup</Link>
                     <Link to='/'>Login</Link>
                     <Link to='/'>About</Link>
                     <Link to='/'>Contact</Link>

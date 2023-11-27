@@ -35,6 +35,9 @@ export default {
       'tablet': {
         min: '768px'
       },
+      'desktop':{
+        min: '1000px'
+      },
       'mobile':{
         min:'0px',
         max:'767px'
