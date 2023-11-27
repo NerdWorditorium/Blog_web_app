@@ -1,19 +1,41 @@
 import { Form, Button, Checkbox, Input } from "antd";
 import NavBar from "../../components/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useSignupMutation } from "../../redux/api/api";
 
 function SignUp(){
-    const [username, setUserName] = useState("")
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
 
-    const sign_up = (event)=>{
+    const [signup_user, {isError, isSuccess, isLoading}] = useSignupMutation();
+
+    const [username, setUserName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+
+    const sign_up = async(event)=>{
         event.preventDefault();
-        alert(username);
-        alert(email);
-        alert(password);
-    }
+        const user = {
+            username: username,
+            email: email,
+            password: password
+        };
+        try {
+            var response = await signup_user(user);
+            if(response.data.status===400){
+                alert(response.data.message);
+            } else if (response.data.status===201){
+                alert(response.data.message);
+                navigate('/blogs')
+            } else{
+                alert(response.data.message);
+            }
+            
+        } catch(error){
+            console.log(error.message);
+            throw error;
+        }
+    };
     return <>
         <NavBar/>
         <div className="flex flex-row w-full justify-center py-20 gap-20">
