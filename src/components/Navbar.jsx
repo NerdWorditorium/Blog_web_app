@@ -61,7 +61,7 @@ function NavBar({loggedIn, username}){
                 &&
                 <span className="tablet:flex tablet:flex-row tablet:gap-11 flex flex-col gap-2">
                     <Link to='/signup'>Signup</Link>
-                    <Link to='/'>Login</Link>
+                    <Link to='/login'>Login</Link>
                     <Link to='/'>About</Link>
                     <Link to='/'>Contact</Link>
                 </span>
@@ -70,8 +70,8 @@ function NavBar({loggedIn, username}){
                 loggedIn
                 &&
                 <span className="tablet:flex tablet:flex-row tablet:gap-11 flex flex-col gap-2">
-                    <Link to='/'>Create</Link>
-                    <Link to='/'>Blogs</Link>
+                    <Link to='/create'>Create</Link>
+                    <Link to='/blogs'>Blogs</Link>
                     <Link to='/'>Find Blogs</Link>
                     <DropdownMenu 
                         items={items} 
