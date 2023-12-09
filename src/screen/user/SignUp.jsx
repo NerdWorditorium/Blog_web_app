@@ -1,17 +1,26 @@
-import { Form, Button, Checkbox, Input } from "antd";
-import NavBar from "../../components/Navbar";
+import { Form, Button, Checkbox, Input, message } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useSignupMutation } from "../../redux/api/api";
+import NavBar from "../../components/Navbar";
 
 function SignUp(){
-
     const [signup_user, {isError, isSuccess, isLoading}] = useSignupMutation();
-
+    const [messageApi, contextHolder] = message.useMessage();
     const [username, setUserName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [message_visibility, setVisibility] = useState(false);
     const navigate = useNavigate();
+
+    const openMessage = (type, content) => {
+        messageApi.open({
+            key: 'updatable',
+            type: type,
+            content: content,
+            duration: 1.5
+        });
+    };
 
     const sign_up = async(event)=>{
         event.preventDefault();
@@ -22,13 +31,11 @@ function SignUp(){
         };
         try {
             var response = await signup_user(user);
-            if(response.data.status===400){
-                alert(response.data.message);
-            } else if (response.data.status===201){
-                alert(response.data.message);
+            if (response.data.status===201){
+                openMessage(response.data.message);
                 navigate('/blogs')
             } else{
-                alert(response.data.message);
+                openMessage("error", response.data.message);
             }
             
         } catch(error){
@@ -38,6 +45,7 @@ function SignUp(){
     };
     return <>
         <NavBar/>
+        {contextHolder}
         <div className="flex flex-row w-full justify-center py-20 gap-20">
         <div className="inline-block">
             <div className="flex flex-col justify-center w-full">
