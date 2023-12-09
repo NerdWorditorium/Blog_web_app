@@ -15,7 +15,7 @@ const create_user = async (req, res)=>{
             username: userData.username
         })
 
-        if(userEmail==null && username==null){
+        if(userEmail == null && username == null){
             const saveData = userData.save();
             res.json({message:"User created", status: 201});
         } else{
