@@ -72,7 +72,7 @@ function NavBar({loggedIn, username}){
                 <span className="tablet:flex tablet:flex-row tablet:gap-11 flex flex-col gap-2">
                     <Link to='/create'>Create</Link>
                     <Link to='/blogs'>Blogs</Link>
-                    <Link to='/'>Your Blogs</Link>
+                    <Link to='/personalblogs'>Your Blogs</Link>
                     <DropdownMenu 
                         items={items} 
                         value={username} 
