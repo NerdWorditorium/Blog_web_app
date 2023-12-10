@@ -32,8 +32,11 @@ function SignUp(){
         try {
             var response = await signup_user(user);
             if (response.data.status===201){
-                openMessage(response.data.message);
-                navigate('/blogs')
+                openMessage("success", response.data.message);
+                setTimeout(()=>{
+                    navigate('/blogs');
+                }, 1500);
+               
             } else{
                 openMessage("error", response.data.message);
             }
