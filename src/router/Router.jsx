@@ -10,6 +10,7 @@ import UserDetail from "../screen/user/Detail";
 import Create from "../screen/blogs/Create";
 import Blogs from "../screen/blogs/Blogs";
 import UpdateBlogs from "../screen/blogs/Update";
+import YourBlogs from "../screen/blogs/YourBlogs";
 
 function AppRouter(){
     return <>
@@ -25,6 +26,7 @@ function AppRouter(){
                 {/* Blogs route */}
                 <Route path="create" element={<Create/>}/>
                 <Route path="blogs" element={<Blogs/>}/>
+                <Route path="personalblogs" element={<YourBlogs/>}/>
                 <Route path="updateblogs" element={<UpdateBlogs/>}/>
 
             </Routes>
