@@ -11,7 +11,6 @@ function SignUp(){
     const [username, setUserName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [message_visibility, setVisibility] = useState(false);
     const navigate = useNavigate();
 
     const openMessage = (type, content) => {
